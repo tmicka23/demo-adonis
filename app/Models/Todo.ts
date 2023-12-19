@@ -7,10 +7,10 @@ export default class Todo extends BaseModel {
   public id: number
 
   @column()
-  public text: string
+  public text?: string
 
   @column()
-  public done: boolean
+  public done?: boolean
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
@@ -20,7 +20,8 @@ export default class Todo extends BaseModel {
 
   @manyToMany(() => Tag, {
     pivotTable: 'todo_tags',
-    serializeAs: 'tags'
+    serializeAs: 'tags',
+
   })
   public tags: ManyToMany<typeof Tag>
 }
