@@ -24,4 +24,12 @@ Route.get('/', async () => {
   return { hello: 'world' }
 })
 
-Route.resource('/todos', 'TodosController')
+Route.post('/registrations', 'RegistrationsController.store')
+Route.post('/login', 'AuthController.create')
+
+Route.group(() => {
+  Route.resource('/todos', 'TodosController')
+  Route.resource('/tags', 'TagsController')
+  Route.delete('/registrations', 'RegistrationsController.destroy')
+  Route.delete('/logout', 'AuthController.destroy')
+}).middleware('auth')
