@@ -13,7 +13,7 @@ export default class TodosController {
   public async store({request, response}: HttpContextContract) {
     const payload = await request.validate(TodoValidator)
     const todo = await Todo.create(payload)
-    if (payload.tags?.length > 0) {
+    if (payload.tags && payload.tags.length > 0) {
       const tags = await Tag.findMany(payload.tags)
       await todo.related('tags').createMany(tags)
     }
@@ -31,7 +31,7 @@ export default class TodosController {
     const payload = await request.validate(TodoValidator)
     const todo = await Todo.findOrFail(params.id)
     todo.merge(payload)
-    if (payload.tags?.length > 0) {
+    if (payload.tags && payload.tags.length > 0) {
       const tags = await Tag.findMany(payload.tags)
       todo.related('tags').createMany(tags)
     }

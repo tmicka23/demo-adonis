@@ -24,11 +24,11 @@ export default class TagValidator {
    *    ```
    */
   public schema = schema.create({
-    name: schema.string.nullableAndOptional({
+    name: schema.string.optional({
       escape: true,
       trim: true,
     }),
-    todos: schema.array.nullableAndOptional().members(schema.number())
+    todos: schema.array.optional().members(schema.number())
   })
 
 

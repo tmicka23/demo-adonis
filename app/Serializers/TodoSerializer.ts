@@ -4,7 +4,7 @@ export default class TodoSerializer {
 
   private static baseSchema = {
     fields: {
-      pick: ['id', 'text', 'done'],
+      pick: ['id', 'text', 'done', 'test'],
       omit: ['updatedAt', 'createdAt']
     },
     relations: {

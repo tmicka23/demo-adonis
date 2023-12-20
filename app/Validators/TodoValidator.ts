@@ -24,14 +24,13 @@ export default class TodoValidator {
    *    ```
    */
   public schema = schema.create({
-    text: schema.string({
+    text: schema.string.optional({
       escape: true,
       trim: true,
     }),
-    done: schema.boolean(),
-    tags: schema.array().members(schema.number())
+    done: schema.boolean.optional(),
+    tags: schema.array.optional().members(schema.number())
   })
-
 
   /**
    * Custom messages for validation failures. You can make use of dot notation `(.)`
