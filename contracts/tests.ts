@@ -5,11 +5,13 @@
  * file.
  */
 
+import { Expect } from '@japa/expect/build/src/types'
 import '@japa/runner'
 
 declare module '@japa/runner' {
   interface TestContext {
     // Extend context
+    expect: Expect
   }
 
   interface Test<TestData> {
