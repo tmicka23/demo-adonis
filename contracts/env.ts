@@ -4,7 +4,6 @@
  * Feel free to let us know via PR, if you find something broken in this contract
  * file.
  */
-
 declare module '@ioc:Adonis/Core/Env' {
   /*
   |--------------------------------------------------------------------------
@@ -19,6 +18,11 @@ declare module '@ioc:Adonis/Core/Env' {
   */
 
 	type CustomTypes = typeof import('../env').default
+
 	interface EnvTypes extends CustomTypes {
+    SMTP_HOST: string,
+    SMTP_PORT: number,
+    SMTP_USERNAME: string,
+    SMTP_PASSWORD: string,
 	}
 }
